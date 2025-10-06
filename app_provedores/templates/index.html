@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Datos de Provedores</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        h1 {
+            color: #0056b3;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        thead {
+            background-color: #007bff;
+            color: white;
+        }
+        th, td {
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        tbody tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        tbody tr:hover {
+            background-color: #e9f2ff;
+        }
+        p.no-data {
+            text-align: center;
+            font-style: italic;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Listado de Provedores  "FORD"  EMILIANO AVILEZ </h1>
+        {% if provedores %}
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Producto</th>
+                        <th>Contacto</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for provedor in provedores %}
+                        <tr>
+                            <td>{{ provedor.nombre }}</td>
+                            <td>{{ provedor.producto }}</td>
+                            <td>{{ provedor.contacto }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p class="no-data">No hay provedores disponibles.</p>
+        {% endif %}
+    </div>
+</body>
+</html>
